@@ -1,0 +1,9 @@
+<div class="">
+  <!-- create a blog and check if the user is authenticated or not. if authenticated then send "You are logged in user" otherwise send "you are not logged in user" -->
+  <p style="font-weight: bold; font-style: italic;">
+    {% if user.is_authenticated %}
+    You are logged in user
+    {% else %}
+    You are not logged in user
+    {% endif %}</p>
+</div>

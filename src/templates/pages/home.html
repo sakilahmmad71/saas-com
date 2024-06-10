@@ -1,0 +1,26 @@
+{% extends 'layout/base.html' %}
+
+
+
+{% block header_title %}Home page - {{ block.super }}{% endblock header_title %}
+
+{% block content %}
+<h1>Welcome to the SaaS Application</h1>
+<p>This is the home page of the SaaS application.</p>
+
+<p>Click on the links below to navigate to the different sections of the application:</p>
+
+{% include 'components/molecules/welcome-user-message.html' %}
+
+<h1>Personal Information</h1>
+<div class="">
+  <p>Name: {{ name }}</p>
+  <p>Age: {{ age }}</p>
+  <p>Job: {{ job }}</p>
+</div>
+
+<div>
+  <h4>Page visit count: {{ page_visit_count }}</h4>
+  <h5>Total visit count: {{ total_visit_count }}</h5>
+</div>
+{% endblock content %}
