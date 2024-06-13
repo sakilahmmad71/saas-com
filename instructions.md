@@ -46,3 +46,9 @@
 - the model now can be use anywhere needed
 - model contains the objects and other methods
 - see the documentation for other use cases
+
+### Deployment
+
+- it's really bad to deploy the app with Debug flag in production
+- disable the debug flag programmatically before pushing into the production
+- add necessary domains to the `ALLOWED_HOSTS` setting
