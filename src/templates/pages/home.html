@@ -3,22 +3,27 @@
 {% block header_title %}Home page - {{ block.super }}{% endblock header_title %}
 
 {% block content %}
-<h1>Welcome to the SaaS Application</h1>
-<p>This is the home page of the SaaS application.</p>
+<div class="h-screen pt-10 flex flex-col gap-6">
+  <h1 class="text-5xl text-center">Welcome to the SaaS Application</h1>
+  <p class="text-2xl text-center">This is the home page of the SaaS application.</p>
+  <p class="text-center">Click on the links below to navigate to the different sections of the application:</p>
 
-<p>Click on the links below to navigate to the different sections of the application:</p>
 
-{% include 'components/molecules/welcome-user-message.html' %}
+  <div class="flex justify-center">
+    <div class="text-left">
+      {% include 'components/molecules/welcome-user-message.html' %}
+      <h1>Personal Information</h1>
+      <p>Name: {{ name }}</p>
+      <p>Age: {{ age }}</p>
+      <p>Job: {{ job }}</p>
+    </div>
+  </div>
 
-<h1>Personal Information</h1>
-<div class="">
-  <p>Name: {{ name }}</p>
-  <p>Age: {{ age }}</p>
-  <p>Job: {{ job }}</p>
-</div>
-
-<div>
-  <h4>Page visit count: {{ page_visit_count }}</h4>
-  <h5>Total visit count: {{ total_visit_count }}</h5>
+  <div class="flex justify-center">
+    <div class="text-left">
+      <h4>Page visit count: {{ page_visit_count }}</h4>
+      <h5>Total visit count: {{ total_visit_count }}</h5>
+    </div>
+  </div>
 </div>
 {% endblock content %}

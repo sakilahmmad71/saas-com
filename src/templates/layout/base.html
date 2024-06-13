@@ -2,13 +2,17 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block header_title %}SaaS Application{% endblock header_title %}</title>
+  {% include './styles.html' %}
 </head>
 
 <body>
+  {% include './header.html' %}
   {% block content %}{% endblock content %}
+  {% include './footer.html' %}
+  {% include './scripts.html' %}
 </body>
 
 </html>
