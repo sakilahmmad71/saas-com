@@ -2,7 +2,7 @@ import requests
 from pathlib import Path
 
 
-def download_file(url: str, output_path: Path, parent_mkdir: bool = True):
+def download_to_local(url: str, output_path: Path, parent_mkdir: bool = True):
     if not isinstance(output_path, Path):
         raise ValueError("output_path must be a Path object")
     if parent_mkdir:
