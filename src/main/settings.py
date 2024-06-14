@@ -82,9 +82,6 @@ WSGI_APPLICATION = "main.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
-# CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=300)
-# DATABASE_URL = config("DATABASE_URL", cast=str)
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -95,6 +92,14 @@ DATABASES = {
         "PORT": config("DB_PORT"),
     }
 }
+
+if config("DB_USER") is None or config("DB_PASSWORD") is None:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 # Password validation
