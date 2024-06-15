@@ -1,0 +1,21 @@
+{% extends 'layout/base.html' %}
+
+{% block header_title %}Log in page - {{ block.super }}{% endblock header_title %}
+
+{% block content %}
+<!-- Simple username and password input form with submit button -->
+<div class="h-screen pt-10 flex flex-col gap-6">
+  <h1 class="text-5xl text-center">Log in to the SaaS Application</h1>
+  <p class="text-2xl text-center">Please enter your username and password to log in.</p>
+
+  <form action="/login/" method="POST" class="flex flex-col gap-4 items-center">
+    {% csrf_token %}
+    <label for="username" class="text-xl">Username:</label>
+    <input type="text" id="username" name="username" class="p-2 border border-gray-300 rounded-md" required>
+
+    <label for="password" class="text-xl">Password:</label>
+    <input type="password" id="password" name="password" class="p-2 border border-gray-300 rounded-md" required>
+
+    <button type="submit" class="p-2 bg-blue-500 text-white rounded-md">Log in</button>
+  </form>
+  {% endblock content %}
