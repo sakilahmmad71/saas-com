@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
+
+from django.conf import settings
 
 from django.contrib.auth import get_user_model
 
+LOGIN_URL = settings.LOGIN_URL
 User = get_user_model()
 
 
@@ -59,3 +63,8 @@ def register_view(request, *args, **kwargs):
 @login_required
 def user_only_view(request, *args, **kwargs):
     return render(request, "pages/user_only.html", {})
+
+
+@staff_member_required(login_url=LOGIN_URL)
+def staff_only_view(request, *args, **kwargs):
+    return render(request, "pages/staff_only.html", {})
