@@ -1,0 +1,9 @@
+{% extends 'layout/base.html' %}
+
+{% block header_title %}User Only page - {{ block.super }}{% endblock header_title %}
+
+{% block content %}
+<div class="h-screen pt-10 flex flex-col gap-6">
+  <p>This page only for user authenticated users</p>
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'layout/base.html' %}
+
+{% block header_title %}Protected View Page - {{ block.super }}{% endblock header_title %}
+
+{% block content %}
+<h1>Enter the password</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  <label for="password">Password:</label>
+  <input type="password" id="code" name="code" required>
+  <button type="submit">Submit</button>
+</form>
+{% endblock content %}

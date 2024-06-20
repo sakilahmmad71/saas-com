@@ -57,3 +57,20 @@ def about_view(request, *args, **kwargs):
     Visit.objects.create(path=request.path)
     # Render the HTML template with the context data
     return render(request, html_template, context)
+
+
+VALID_CODE = "123456"
+
+
+def pw_protected_view(request, *args, **kwargs):
+    is_allowed = request.session.get("protected_page_allowed", False) or False
+
+    if request.method == "POST":
+        code = request.POST.get("code") or None
+        if code == VALID_CODE:
+            request.session["protected_page_allowed"] = True
+
+    if is_allowed:
+        return render(request, "protected/entry.html", {})
+
+    return render(request, "protected/view.html", {})

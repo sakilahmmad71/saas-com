@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth import get_user_model
 
@@ -8,9 +9,6 @@ User = get_user_model()
 
 # Create your views here.
 def login_view(request, *args, **kwargs):
-    # print("🚀 ~ login_view ~ request.method", request.method)
-    # print("🚀 ~ login_view ~ request.POST", request.POST)
-
     if request.method == "POST":
         # Getting the username and password from the form
         username = request.POST.get("username") or None
@@ -56,3 +54,8 @@ def register_view(request, *args, **kwargs):
 
     # return the context data to the login.html template
     return render(request, "pages/register.html", {})
+
+
+@login_required
+def user_only_view(request, *args, **kwargs):
+    return render(request, "pages/user_only.html", {})
