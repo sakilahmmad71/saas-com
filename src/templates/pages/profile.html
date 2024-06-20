@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}
+
+{% block header_title %}Home page - {{ block.super }}{% endblock header_title %}
+
+{% block content %}
+<div class="h-screen pt-10 flex flex-col gap-6">
+  <h1 class="text-5xl text-center">Welcome to the SaaS Application</h1>
+
+  <div class="flex justify-center">
+    <div class="text-left">
+      <p>Name: {{username}}</p>
+    </div>
+  </div>
+</div>
+{% endblock content %}
