@@ -6,6 +6,25 @@
 <div class="h-screen pt-10 flex flex-col gap-6">
   <h1 class="text-5xl text-center">Welcome to the SaaS Application</h1>
 
+  <div class="">
+    <h2 class="text-3xl text-center">Current Subscription Plan</h2>
+    <div class="flex justify-center">
+      <div class="text-left">
+        {% if basic_subscription and not pro_subscription and not advance_subscription %}
+          <p>Basic Subscription Plan</p>
+        {% endif %}
+
+        {% if basic_subscription and pro_subscription %}
+          <p>Pro Subscription Plan</p>
+        {% endif %}
+
+        {% if basic_subscription and pro_subscription and advance_subscription %}
+          <p>Advance Subscription Plan</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
   <div class="flex justify-center">
     <div class="text-left">
       <p>Name: {{username}}</p>

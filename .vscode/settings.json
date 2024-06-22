@@ -1,0 +1,32 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Extension",
+			"type": "extensionHost",
+			"request": "launch",
+			"runtimeExecutable": "${execPath}",
+			"args": ["--extensionDevelopmentPath=${workspaceFolder}"]
+		}
+	],
+	"files.associations": {
+		"**/*.html": "html",
+		"**/templates/*/*.html": "django-html",
+		"**/templates/*": "django-html",
+		"**/requirements{/**,*}.{txt,in}": "pip-requirements"
+	},
+	"emmet.includeLanguages": {
+		"django-html": "html"
+	},
+	"beautify.language": {
+		"html": ["htm", "html", "django-html"]
+	},
+	"prettier.disableLanguages": ["django-html"],
+	"beautify.language": {
+		"html": ["django-html"]
+	},
+	"[django-html]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "HookyQR.beautify"
+	}
+}

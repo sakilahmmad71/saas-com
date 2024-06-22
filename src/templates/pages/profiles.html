@@ -1,0 +1,23 @@
+{% extends 'layout/base.html' %}
+
+{% block header_title %}Profiles page - {{ block.super }}{% endblock header_title %}
+
+{% block content %}
+<div class="h-screen pt-10 flex flex-col gap-6">
+  <h1 class="text-5xl text-center">Welcome to the SaaS Application</h1>
+
+  {% if perms.auth %}
+    {% if perms.auth.view_user %}
+      <ul>
+        {% for profile in profiles %}
+          <li>
+            <a href="/profiles/{{profile.username}}">{{ profile.username }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+    <p>You are not authorized to view this page.</p>
+    {% endif %}
+  {% endif %}
+</div>
+{% endblock content %}
